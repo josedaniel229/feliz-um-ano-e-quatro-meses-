@@ -91,13 +91,18 @@
     }
 
     .message {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.2em;
-      background-color: rgba(255,255,255,0.2);
-      padding: 20px;
-      border-radius: 10px;
-    }
+  display: none;
+  margin-top: 20px;
+  font-size: 1.2em;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90vw;        /* Limita a largura a 90% da tela */
+  word-wrap: break-word;  /* Permite quebra de palavra */
+  overflow-wrap: break-word; /* Para navegadores modernos */
+  text-align: center;
+}
+
 
     #typingText {
       border-right: 2px solid #fff;
@@ -269,4 +274,5 @@
   </div>
 </body>
 </html>
+
 
