@@ -1,160 +1,271 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Um Ano e Quatro Meses Juntos</title>
-    <style>
-        /* Base */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
-        .cover, .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        }
-        .cover {
-            height: 100vh;
-            background: linear-gradient(to right, #ff6f91, #ffcccb);
-            color: #fff;
-            animation: fadeIn 1s;
-        }
-        @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-        .cover h1 { font-size: 3em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .cover button {
-            background-color: #ff69b4; color: white; border: none;
-            padding: 15px 30px; font-size: 1.2em; cursor: pointer;
-            border-radius: 5px; transition: background-color 0.3s;
-            display: none;
-        }
-        .cover button:hover { background-color: #ff1493; }
-        .hearts { position: relative; width: 100px; height: 100px; margin: 0 auto; animation: heartsAnimation 2s forwards; }
-        @keyframes heartsAnimation { 0% {transform:translateY(0); opacity:0;} 50% {transform:translateY(-20px);opacity:1;} 100%{transform:translateY(0);opacity:1;} }
-        .heart { position: absolute; width: 50px; height: 50px; background-color:#ff1493; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
-        .heart.left { left:0; animation: heartBeat 1s infinite; }
-        .heart.right { right:0; animation: heartBeat 1s infinite; }
-        @keyframes heartBeat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.2);} }
-        .content { display:none; text-align:center; padding:20px; background: linear-gradient(to right, #ff6f91, #ffcccb); color:#fff; }
-        h1 { font-size:3em; margin-bottom:20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); animation: slideIn 1s; }
-        @keyframes slideIn { from{transform:translateY(-50px);opacity:0;} to{transform:translateY(0);opacity:1;} }
-        h2 { font-size:2em; margin-top:30px; }
-        p { font-size:1.5em; margin:10px 0; line-height:1.5; animation: fadeIn 1s; }
-        .heart { color:#ff1493; font-size:4em; animation: heartbeat 1s infinite; }
-        @keyframes heartbeat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);} }
-        .button { background-color:#ff69b4; color:white; border:none; padding:15px 30px; text-align:center; text-decoration:none; display:inline-block; font-size:1.2em; margin:20px 2px; cursor:pointer; border-radius:5px; transition:background-color 0.3s, transform 0.3s; }
-        .button:hover { background-color:#ff1493; transform:scale(1.05); }
-        .message { display:none; margin-top:20px; font-size:1.2em; background-color:rgba(255,255,255,0.2); padding:20px; border-radius:10px; animation:fadeIn 0.5s; }
-        .image-container {
-            margin:20px auto;
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:center;
-            gap:15px;
-        }
-        img { max-width:250px; height:auto; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.5); transition: transform 0.3s; }
-        img:hover { transform:scale(1.05); }
-        footer { margin-top:40px; font-size:1em; color:#fff; }
-        .quote { font-style:italic; margin:20px 0; animation:bounce 1s infinite; }
-        @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Um Ano e Quatro Meses Juntos</title>
+  <style>
+    /* Base */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .cover, .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    .cover {
+      height: 100vh;
+      background: linear-gradient(to right, #ff6f91, #ffcccb);
+      color: #fff;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    .cover h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .cover button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      display: none;
+    }
+    .cover button:hover { background-color: #ff1493; }
 
-        /* RESPONSIVO */
-        @media screen and (max-width: 768px) {
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.5em; }
-            p { font-size: 1.2em; }
-            .cover h1 { font-size:2em; }
-            .heart { font-size:3em; width:40px; height:40px; }
-            .image-container img { max-width: 150px; }
-            .button { font-size:1em; padding:10px 20px; }
+    .content {
+      display: none;
+      background: linear-gradient(to right, #ff6f91, #ffcccb);
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: slideIn 1s;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 { font-size: 2em; margin-top: 30px; }
+    p {
+      font-size: 1.5em;
+      margin: 10px 0;
+      line-height: 1.5;
+      animation: fadeIn 1s;
+    }
+
+    .button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.2em;
+      margin: 20px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2em;
+      background-color: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    #typingText {
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      display: inline-block;
+      font-size: 1.5em;
+    }
+
+    .image-container {
+      margin: 20px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    img {
+      max-width: 250px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+
+    img:hover { transform: scale(1.05); }
+
+    footer {
+      margin-top: 40px;
+      font-size: 1em;
+      color: #fff;
+    }
+
+    .quote {
+      font-style: italic;
+      margin: 20px 0;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsivo */
+    @media screen and (max-width: 768px) {
+      h1 { font-size: 2em; }
+      h2 { font-size: 1.5em; }
+      p { font-size: 1.2em; }
+      .cover h1 { font-size: 2em; }
+      .image-container img { max-width: 150px; }
+      .button { font-size: 1em; padding: 10px 20px; }
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.2em; }
+      p { font-size: 1em; }
+      .cover h1 { font-size: 1.8em; }
+      .image-container { gap: 10px; }
+      .image-container img { max-width: 120px; }
+      .button { font-size: 0.9em; padding: 8px 15px; }
+    }
+  </style>
+
+  <script>
+    function showContent() {
+      document.querySelector('.cover').style.display = 'none';
+      document.querySelector('.content').style.display = 'flex';
+    }
+
+    function showQuote() {
+      document.getElementById('quote').style.display = 'block';
+    }
+
+    function showButton() {
+      document.querySelector('.cover button').style.display = 'block';
+    }
+
+    const loveMessages = [
+      "Amor, cada dia ao seu lado é uma nova aventura.",
+      "Te amar é a melhor decisão que já tomei na vida.",
+      "Você é meu porto seguro, meu amor eterno.",
+      "Com você, tudo faz sentido. Até o silêncio vira poesia.",
+      "Seu sorriso ilumina meus dias, e seu amor preenche minha alma.",
+      "Cada segundo ao seu lado é um presente que a vida me deu.",
+      "A melhor parte do meu dia é quando estou com você.",
+      "Você é a razão pela qual meu coração bate mais forte.",
+      "Entre mil caminhos, escolheria você. Sempre você!"
+    ];
+
+    let msgIndex = 0;
+
+    function typeMessage(message, index = 0) {
+      const textElement = document.getElementById("typingText");
+      textElement.innerHTML = "";
+      textElement.style.width = "0";
+      let currentText = "";
+
+      function type() {
+        if (index < message.length) {
+          currentText += message.charAt(index);
+          textElement.textContent = currentText;
+          index++;
+          setTimeout(() => typeMessage(message, index), 50);
+        } else {
+          setTimeout(() => {
+            msgIndex = (msgIndex + 1) % loveMessages.length;
+            typeMessage(loveMessages[msgIndex]);
+          }, 2500);
         }
-        @media screen and (max-width: 480px) {
-            h1 { font-size:1.8em; }
-            h2 { font-size:1.2em; }
-            p { font-size:1em; }
-            .cover h1 { font-size:1.8em; }
-            .heart { font-size:2.5em; width:35px; height:35px; }
-            .image-container { gap:10px; }
-            .image-container img { max-width:120px; }
-            .button { font-size:0.9em; padding:8px 15px; }
-        }
-    </style>
-    <script>
-        function showContent() { document.querySelector('.cover').style.display = 'none'; document.querySelector('.content').style.display = 'flex'; }
-        function showMessage() { document.getElementById('specialMessage').style.display = 'block'; }
-        function showQuote() { document.getElementById('quote').style.display = 'block'; }
-        function showButton() { document.querySelector('.cover button').style.display = 'block'; }
-    </script>
+      }
+      type();
+    }
+
+    function startTyping() {
+      document.getElementById('specialMessage').style.display = 'block';
+      msgIndex = 0;
+      typeMessage(loveMessages[msgIndex]);
+    }
+
+    setTimeout(showButton, 2000);
+  </script>
 </head>
+
 <body>
-    <div class="cover">
-        <div>
-            <h1>Seja Bem Vinda Amor!</h1>
-            <div class="hearts">
-                <div class="heart left"></div>
-                <div class="heart right"></div>
-            </div>
-            <button onclick="showContent()">Clique Aqui Amor</button>
-        </div>
+  <div class="cover">
+    <div>
+      <h1>Seja Bem Vinda Amor!</h1>
+      <button onclick="showContent()">Clique Aqui Amor</button>
     </div>
-    
-    <div class="content">
-        <h1>Um Ano e Quatro Meses Juntos!</h1>
-        <p>Oii Minha Gatinha,</p>
-        <p>Hoje celebramos 1 ano e 4 meses de amor, risadas e momentos inesquecíveis.</p>
-        <p>Você é a razão do meu sorriso e a luz da minha vida. ❤️</p>
-        <p class="heart">❤️❤️❤️</p>
-        
-        <div class="image-container">
-            <img src="img1.jpeg" alt="Momentos Juntos">
-        </div>
-        
-        <button class="button" onclick="showMessage()">Clique para uma Mensagem Especial</button>
-        <div id="specialMessage" class="message">
-        <p>Amor, cada dia ao seu lado é uma nova aventura. Estou tão grato por ter você na minha vida. Que venham muitos mais meses e anos juntos!</p>
-        <p>Te amar é a melhor decisão que já tomei na vida!</p>
-        <p>Você é meu porto seguro, meu amor eterno!</p>
-        <p>Com você, tudo faz sentido. Até o silêncio vira poesia!</p>
-        <p>Seu sorriso ilumina meus dias, e seu amor preenche minha alma!</p>
-        <p>Cada segundo ao seu lado é um presente que a vida me deu!</p>
-        <p>Não importa onde eu esteja, meu coração sempre estará com você!</p>
-        <p>A melhor parte do meu dia é quando estou com você!</p>
-        <p>Se eu pudesse te dar algo, te daria a capacidade de se ver através dos meus olhos – só assim entenderia o quanto é amado(a)!</p>
-        <p>Você é a razão pela qual meu coração bate mais forte!</p>
-        <p>Entre mil caminhos, escolheria você. Sempre você!</p>
-        </div>
-        
-        <h2>Alguns dos Nossos Momentos</h2>
-        <div class="image-container">
-            <img src="img2.jpeg" alt="Nosso Primeiro Encontro">
-            <img src="img3.jpeg" alt="Viagem Juntos">
-            <img src="img4.jpeg" alt="Momentos Felizes">
-            <img src="img5.jpeg" alt="Na Igreja Juntos">
-        </div>
-        
-        <h2>Uma Citação Especial</h2>
-        <button class="button" onclick="showQuote()">Clique para Ver a Citação</button>
-        <div id="quote" class="quote" style="display: none;">
-            <p>"O amor não consiste em olhar um para o outro, mas sim em olhar juntos na mesma direção." - Antoine de Saint-Exupéry</p>
-        </div>
-        
-        <footer>
-            <p>Estou ansioso para criar ainda mais memórias ao seu lado!</p>
-            <p>Com todo meu amor,</p>
-            <p>José Daniel </p>
-        </footer>
+  </div>
+
+  <div class="content">
+    <h1>Um Ano e Quatro Meses Juntos!</h1>
+    <p>Oii Minha Gatinha,</p>
+    <p>Hoje celebramos 1 ano e 4 meses de amor, risadas e momentos inesquecíveis.</p>
+    <p>Você é a razão do meu sorriso e a luz da minha vida. ❤️</p>
+
+    <div class="image-container">
+      <img src="img1.jpeg" alt="Momentos Juntos">
     </div>
 
-    <script>
-        setTimeout(showButton, 2000);
-    </script>
+    <button class="button" onclick="startTyping()">Clique para uma Mensagem Especial</button>
+    <div id="specialMessage" class="message">
+      <p id="typingText"></p>
+    </div>
+
+    <h2>Alguns dos Nossos Momentos</h2>
+    <div class="image-container">
+      <img src="img2.jpeg" alt="Nosso Primeiro Encontro">
+      <img src="img3.jpeg" alt="Viagem Juntos">
+      <img src="img4.jpeg" alt="Momentos Felizes">
+      <img src="img5.jpeg" alt="Na Igreja Juntos">
+    </div>
+
+    <h2>Uma Citação Especial</h2>
+    <button class="button" onclick="showQuote()">Clique para Ver a Citação</button>
+    <div id="quote" class="quote" style="display: none;">
+      <p>"O amor não consiste em olhar um para o outro, mas sim em olhar juntos na mesma direção." - Antoine de Saint-Exupéry</p>
+    </div>
+
+    <footer>
+      <p>Estou ansioso para criar ainda mais memórias ao seu lado!</p>
+      <p>Com todo meu amor,</p>
+      <p>José Daniel</p>
+    </footer>
+  </div>
 </body>
 </html>
-
-
-
