@@ -103,7 +103,6 @@
       border-right: 2px solid #fff;
       white-space: nowrap;
       overflow: hidden;
-      width: 0;
       display: inline-block;
       font-size: 1.5em;
     }
@@ -179,27 +178,24 @@
     }
 
     const loveMessages = [
-<p>Amor, cada dia ao seu lado é uma nova aventura. Estou tão grato por ter você na minha vida. Que venham muitos mais meses e anos juntos!</p>
-<p>Te amar é a melhor decisão que já tomei na vida!</p>
-<p>Você é meu porto seguro, meu amor eterno!</p>
-<p>Com você, tudo faz sentido. Até o silêncio vira poesia!</p>
-<p>Seu sorriso ilumina meus dias, e seu amor preenche minha alma!</p>
-<p>Cada segundo ao seu lado é um presente que a vida me deu!</p>
-<p>Não importa onde eu esteja, meu coração sempre estará com você!</p>
-<p>A melhor parte do meu dia é quando estou com você!</p>
-<p>Se eu pudesse te dar algo, te daria a capacidade de se ver através dos meus olhos – só assim entenderia o quanto é amado(a)!</p>
-<p>Você é a razão pela qual meu coração bate mais forte!</p>
-<p>Entre mil caminhos, escolheria você. Sempre você!</p>
-<p>Eu te amarei hoje, amanhã e sempre ❤️❤️❤️!</p>
-
+      "Amor, cada dia ao seu lado é uma nova aventura. Estou tão grato por ter você na minha vida. Que venham muitos mais meses e anos juntos!",
+      "Te amar é a melhor decisão que já tomei na vida!",
+      "Você é meu porto seguro, meu amor eterno!",
+      "Com você, tudo faz sentido. Até o silêncio vira poesia!",
+      "Seu sorriso ilumina meus dias, e seu amor preenche minha alma!",
+      "Cada segundo ao seu lado é um presente que a vida me deu!",
+      "Não importa onde eu esteja, meu coração sempre estará com você!",
+      "A melhor parte do meu dia é quando estou com você!",
+      "Se eu pudesse te dar algo, te daria a capacidade de se ver através dos meus olhos – só assim entenderia o quanto é amado(a)!",
+      "Você é a razão pela qual meu coração bate mais forte!",
+      "Entre mil caminhos, escolheria você. Sempre você!",
+      "Eu te amarei hoje, amanhã e sempre ❤️❤️❤️!"
     ];
 
     let msgIndex = 0;
 
     function typeMessage(message, index = 0) {
       const textElement = document.getElementById("typingText");
-      textElement.innerHTML = "";
-      textElement.style.width = "0";
       let currentText = "";
 
       function type() {
@@ -207,7 +203,7 @@
           currentText += message.charAt(index);
           textElement.textContent = currentText;
           index++;
-          setTimeout(() => typeMessage(message, index), 50);
+          setTimeout(type, 50);
         } else {
           setTimeout(() => {
             msgIndex = (msgIndex + 1) % loveMessages.length;
@@ -243,7 +239,7 @@
     <p>Você é a razão do meu sorriso e a luz da minha vida. ❤️</p>
 
     <div class="image-container">
-      <img src="img1.jpeg" alt="Momentos Juntos">
+      <img src="img1.jpeg" alt="Momentos Juntos" />
     </div>
 
     <button class="button" onclick="startTyping()">Clique para uma Mensagem Especial</button>
@@ -253,10 +249,10 @@
 
     <h2>Alguns dos Nossos Momentos</h2>
     <div class="image-container">
-      <img src="img2.jpeg" alt="Nosso Primeiro Encontro">
-      <img src="img3.jpeg" alt="Viagem Juntos">
-      <img src="img4.jpeg" alt="Momentos Felizes">
-      <img src="img5.jpeg" alt="Na Igreja Juntos">
+      <img src="img2.jpeg" alt="Nosso Primeiro Encontro" />
+      <img src="img3.jpeg" alt="Viagem Juntos" />
+      <img src="img4.jpeg" alt="Momentos Felizes" />
+      <img src="img5.jpeg" alt="Na Igreja Juntos" />
     </div>
 
     <h2>Uma Citação Especial</h2>
